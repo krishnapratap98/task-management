@@ -1,0 +1,63 @@
+.sidebar {
+  width: 260px;
+  background: #1e326f;
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 40px;
+}
+
+.logo h1 {
+  font-size: 28px;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 12px;
+  opacity: .7;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.sidebar li:hover {
+  background: rgba(255,255,255,.15);
+}
+
+.active {
+  background: #4f46e5;
+}
+
+.upgrade-card {
+  margin-top: auto;
+  background: rgba(255,255,255,.12);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.upgrade-card button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
