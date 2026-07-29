@@ -28,9 +28,11 @@ function Sidebar() {
             </div>
 
             <div className="upgrade-card">
+
                 <h3>Upgrade Pro</h3>
                 <p>Unlock all premium features</p>
                 <button>Upgrade</button>
+                
             </div>
         </div>
     )
