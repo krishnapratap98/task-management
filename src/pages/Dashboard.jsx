@@ -5,6 +5,8 @@ import StatsCards from "../components/StatsCards";
 import TaskFilters from "../components/TaskFilters";
 import RecentTasks from "../components/RecentTasks";
 import "../styles/dashboard.css";
+import CalendarCard from "../components/CalendarCard";
+import UpcomingTasks from "../components/UpcomingTasks";
 
 function Dashboard() {
     return (
@@ -22,13 +24,10 @@ function Dashboard() {
                    <RecentTasks />
 
                     <div className="right-panel">
-                        <div className="calendar-card">
-                            <h2>Calender</h2>
-                        </div>
+                        
+                        <CalendarCard />
 
-                        <div className="upcoming-card">
-                            <h2>Upcoming task</h2>
-                        </div>
+                       <UpcomingTasks />
                     </div>
                 </div>
             </div>

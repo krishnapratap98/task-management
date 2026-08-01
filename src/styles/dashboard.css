@@ -18,17 +18,4 @@
   gap: 25px;
 }
 
-.calendar-card,
-.upcoming-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-}
 
-.calendar-card {
-  height: 250px;
-}
-
-.upcoming-card {
-  height: 225px;
-}

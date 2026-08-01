@@ -1,0 +1,63 @@
+/* ================= Upcoming Tasks ================= */
+
+.upcoming-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.upcoming-card h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.upcoming-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #ececec;
+  transition: 0.3s;
+}
+
+.upcoming-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.upcoming-item h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #111827;
+}
+
+.upcoming-item p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.upcoming-item button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #6C63FF;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.upcoming-item button:hover {
+  background: #5848e5;
+}
