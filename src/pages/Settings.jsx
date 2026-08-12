@@ -5,7 +5,7 @@ function AllTasks() {
   return (
     <PageLayout
       title="Settings"
-      subtitle="Customise your tasks flow application."
+      subtitle="Customise your tasks flow Application."
     >
     </PageLayout>
   );
