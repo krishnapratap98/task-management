@@ -1,36 +1,25 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask, selectAllTasks } from "../store/tasksSlice";
 import "../styles/recentTasks.css";
 
 function RecentTasks() {
-  const tasks = [
-    {
-      id: 1,
-      title: "Dashboard UI Design",
-      category: "Design",
-      priority: "High",
-      due: "Today",
-    },
-    {
-      id: 2,
-      title: "Build React Components",
-      category: "Development",
-      priority: "Medium",
-      due: "Tomorrow",
-    },
-    {
-      id: 3,
-      title: "Fix Responsive Layout",
-      category: "Frontend",
-      priority: "Low",
-      due: "Friday",
-    },
-  ];
+
+  const tasks = useSelector(selectAllTasks);
+
+  const dispatch = useDispatch()
 
   return (
     <div className="task-section">
       <div className="section-header">
         <h2>Recent Tasks</h2>
-        <button className="add-task-btn">+ Add Task</button>
+
+        <button
+          className="add-task-btn"
+          
+        >
+          + Add Task
+        </button>
       </div>
 
       {tasks.map((task) => (
