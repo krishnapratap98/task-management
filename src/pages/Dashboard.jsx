@@ -1,6 +1,7 @@
 import react from "react";
 import Navbar from "../components/Navbar";
 import DashboardHeader from "../components/DashboardHeader";
+import AddTask from "../components/AddTask";
 import StatsCards from "../components/StatsCards";
 import TaskFilters from "../components/TaskFilters";
 import RecentTasks from "../components/RecentTasks";
@@ -24,8 +25,10 @@ function Dashboard() {
 
             <div className="dashboard-content">
                 <DashboardHeader />
+               
                 
                <StatsCards />
+                <AddTask />
                <TaskFilters />
 
                 <div className="dashboard-body">

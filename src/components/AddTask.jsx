@@ -1,13 +1,15 @@
-import { useState } from "react";
 
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTask } from "../store/tasksSlice";
 
 function AddTask() {
-
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [priority, setPriority] = useState("Medium");
     const [due, setDue] = useState("");
 
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,14 +22,19 @@ function AddTask() {
             due,
         };
 
-        console.log(newTask);
+        dispatch(addTask(newTask));
+
+        setTitle("");
+        setCategory("");
+        setPriority("Medium");
+        setDue("");
     };
 
     return (
         <div className="add-task-form">
             <h2>Add New Task</h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label>Task Title</label>
                     <input
@@ -35,7 +42,6 @@ function AddTask() {
                         type="text"
                         placeholder="Enter task title"
                         onChange={(e) => setTitle(e.target.value)}
-
                     />
                 </div>
 
@@ -51,10 +57,10 @@ function AddTask() {
 
                 <div>
                     <label>Priority</label>
-                    <select value={priority}
+                    <select
+                        value={priority}
                         onChange={(e) => setPriority(e.target.value)}
                     >
-
                         <option value="Low">Low</option>
                         <option value="Medium">Medium</option>
                         <option value="High">High</option>
@@ -63,12 +69,14 @@ function AddTask() {
 
                 <div>
                     <label>Due Date</label>
-                    <input type="date"
+                    <input
+                        type="date"
                         value={due}
-                        onChange={(e) => setDue(e.target.value)} />
+                        onChange={(e) => setDue(e.target.value)}
+                    />
                 </div>
 
-                <button type="submit" onClick={handleSubmit}>
+                <button type="submit">
                     Add Task
                 </button>
             </form>
@@ -77,3 +85,4 @@ function AddTask() {
 }
 
 export default AddTask;
+
