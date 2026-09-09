@@ -26,9 +26,9 @@ function Dashboard() {
             <div className="dashboard-content">
                 <DashboardHeader />
                
+               
                 
                <StatsCards />
-                <AddTask />
                <TaskFilters />
 
                 <div className="dashboard-body">

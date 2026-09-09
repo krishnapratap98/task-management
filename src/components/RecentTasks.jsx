@@ -1,13 +1,20 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { addTask, selectAllTasks } from "../store/tasksSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectAllTasks, toggleTask, deleteTask, updateTask } from "../store/tasksSlice";
+import { useNavigate } from "react-router-dom";
 import "../styles/recentTasks.css";
 
 function RecentTasks() {
 
   const tasks = useSelector(selectAllTasks);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  // console.log(tasks);
+
+  
 
   return (
     <div className="task-section">
@@ -16,7 +23,9 @@ function RecentTasks() {
 
         <button
           className="add-task-btn"
-          
+          onClick={() => {
+            navigate("/add-task");
+          }}
         >
           + Add Task
         </button>
@@ -27,10 +36,14 @@ function RecentTasks() {
 
           <div className="task-left">
 
-            <input type="checkbox" />
+            <input type="checkbox"
+              checked={task.completed || false}
+              onChange={() => dispatch(toggleTask(task.id))}
+            />
 
             <div className="task-details">
-              <h3>{task.title}</h3>
+              <h3 className={task.completed ? "completed-task" : ""}>
+                {task.title}</h3>
 
               <div className="task-meta">
                 <span>{task.category}</span>
@@ -45,8 +58,8 @@ function RecentTasks() {
           </div>
 
           <div className="task-actions">
-            <FaEdit />
-            <FaTrash />
+            <FaEdit onClick={() => navigate(`/edit-task/${task.id}`)} />
+            <FaTrash onClick={()=> dispatch(deleteTask(task.id))} />
           </div>
 
         </div>

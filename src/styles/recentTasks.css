@@ -66,3 +66,7 @@
 .task-actions svg:hover {
   color: #6C63FF;
 }
+.completed-task {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

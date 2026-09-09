@@ -1,51 +1,60 @@
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateTask, selectAllTasks } from "../store/tasksSlice";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTask } from "../store/tasksSlice";
-import { useNavigate } from "react-router-dom";
+function EditTask() {
+    const { id } = useParams()
 
-function AddTask() {
+    const tasks = useSelector(selectAllTasks);
+
+    const task = tasks.find((task) => task.id === Number(id));
+
+    useEffect(() => {
+        if (task) {
+            setTitle(task.title);
+            setCategory(task.category);
+            setPriority(task.priority);
+            setDue(task.due);
+        }
+    }, [task]);
+
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [priority, setPriority] = useState("Medium");
     const [due, setDue] = useState("");
 
-    const navigate = useNavigate()
-
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const newTask = {
-            id: Date.now(),
+        const updatedTask = {
+            id: Number(id),
             title,
             category,
             priority,
             due,
+            completed: task.completed || false,
         };
 
-        dispatch(addTask(newTask));
-        navigate("/")
-
-        // setTitle("");
-        // setCategory("");
-        // setPriority("Medium");
-        // setDue("");
+        dispatch(updateTask(updatedTask));
+        navigate("/");
     };
 
     return (
         <div className="add-task-form">
-            <h2>Add New Task</h2>
+            <h2>Edit Task</h2>
 
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Task Title</label>
                     <input
-                        value={title}
                         type="text"
+                        value={title}
                         placeholder="Enter task title"
                         onChange={(e) => setTitle(e.target.value)}
                     />
@@ -54,8 +63,8 @@ function AddTask() {
                 <div>
                     <label>Category</label>
                     <input
-                        value={category}
                         type="text"
+                        value={category}
                         placeholder="Enter category"
                         onChange={(e) => setCategory(e.target.value)}
                     />
@@ -83,12 +92,11 @@ function AddTask() {
                 </div>
 
                 <button type="submit">
-                    Add Task
+                    Update Task
                 </button>
             </form>
         </div>
     );
 }
 
-export default AddTask;
-
+export default EditTask;
