@@ -13,9 +13,9 @@ import {addTask, selectAllTasks} from "../store/tasksSlice"
 
 function Dashboard() {
 
-    const tasks = useSelector(selectAllTasks)
+    // const tasks = useSelector(selectAllTasks)
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
 
 

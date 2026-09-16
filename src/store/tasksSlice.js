@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+
 const initialState = {
-    tasks:[
+    tasks: savedTasks || [
         {
       id: 1,
       title: "Dashboard UI Design",
@@ -42,7 +44,7 @@ const tasksSlice = createSlice({
           }
         },
         deleteTask: (state, action)=>{
-          state.tasks = state.tasks.filter((task)=>task.id !== action.payload) 
+          state.tasks = state.tasks.filter((task) => task.id !== action.payload) 
         },
         updateTask: (state, action) => {
           const index = state.tasks.findIndex((task)=> task.id === action.payload.id)
